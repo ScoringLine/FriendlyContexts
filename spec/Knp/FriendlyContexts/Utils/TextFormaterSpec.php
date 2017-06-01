@@ -40,4 +40,18 @@ class TextFormaterSpec extends ObjectBehavior
 
         $this->tableToString($table)->shouldReturn($return);
     }
+
+    function it_should_return_array_from_list()
+    {
+        $list = 'foo, bar, baz';
+
+        $this->listToArray($list)->shouldReturn(['foo', 'bar', 'baz']);
+    }
+
+    function it_should_return_php_array_from_valid_json()
+    {
+        $json = '{"foo": {"bar": "baz"}}';
+
+        $this->listToArray($json)->shouldReturn(["foo" => ["bar" => "baz"]]);
+    }
 }

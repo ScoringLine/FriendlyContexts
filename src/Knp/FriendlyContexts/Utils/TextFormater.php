@@ -54,9 +54,9 @@ class TextFormater
 
     public function listToArray($list, $delimiters = [', ', ' and '], $parser = "#||#")
     {
-        $json = json_decode($list, true);
+        $arrayFromJson = json_decode($list, true);
         if (json_last_error() === JSON_ERROR_NONE) {
-            return $json;
+            return $arrayFromJson;
         }
 
         $list  = str_replace('"', '', $list);
